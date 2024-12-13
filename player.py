@@ -6,8 +6,9 @@ class Player:
     def get_player_role(self):
         return self._role
 
-    def set_player_role(self):
+    def swap_player_role(self):
         if self._role == "x":
             self._role = "o"
-        self._role = "o"
+        else:
+            self._role = "x"
         return
