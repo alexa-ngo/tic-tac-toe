@@ -1,11 +1,9 @@
-from player import *
-
 class Board:
 
-    def __init__(self, x , o):
+    def __init__(self, player1 , player2):
         self._board = [None, None, None, None, None, None, None, None, None]
-        self._x = x.get_player_role()
-        self._o = o.get_player_role()
+        self._x = player1.get_player_role()
+        self._o = player2.get_player_role()
         self._curr_player = self._x
 
     def set_pos(self, index_num):
@@ -15,8 +13,11 @@ class Board:
 
         if self._curr_player == self._x:
             self._curr_player = self._o
-        self._curr_player = self._o
+
         return self.get_board()
+
+    def new_round(self):
+        self._curr_player = self._x
 
     def get_board(self):
         return self._board
