@@ -33,6 +33,9 @@ class Board:
         # Check to see if the index number is within the range and valid
         self.is_valid(index_num)
 
+        if self._board[index_num] is not None:
+            raise TypeError("Sorry, this index is occupied. Please choose another index.")
+
         self._board[index_num] = self._curr_player
 
         # Switch roles after the position Player X has taken their turn
@@ -43,10 +46,12 @@ class Board:
 
     # will implement a check to see if there is a tie if the board is full
 
+
     def is_valid(self, index_num):
         """
         Checks to see if the index is within the range of the board
         """
+
         if index_num < 0 or index_num > 8:
             raise IndexError("Sorry, index out of range.")
 

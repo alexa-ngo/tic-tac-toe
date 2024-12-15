@@ -11,14 +11,43 @@ class Game:
     def check(self, board):
         print("The board: ")
         b = board
-        top_row = b.get_pos(0) and b.get_pos(1) and b.get_pos(2)
-        mid_row = b.get_pos(3) and b.get_pos(4) and b.get_pos(5)
-        last_row = b.get_pos(6) and b.get_pos(7) and b.get_pos(8)
-        diagonal_down = b.get_pos(0) and b.get_pos(4) and b.get_pos(8)
-        diagonal_up = b.get_pos(2) and b.get_pos(4) and b.get_pos(6)
-        if diagonal_down == "o" or diagonal_up == "o":
+
+        # O wins for horizontal lines
+        if (b.get_pos(0) == "o" and b.get_pos(1) == "o" and b.get_pos(2) == "o" or
+                b.get_pos(3) == "o" and b.get_pos(4) == "o" and b.get_pos(5) == "o" or
+                b.get_pos(6) == "o" and b.get_pos(7) == "o" and b.get_pos(8) == "o"):
+            print("6")
             return "o wins!"
-        if top_row == "x" or mid_row == "x" or last_row == "x":
+
+        # X wins for horizontal lines
+        if (b.get_pos(0) == "x" and b.get_pos(1) == "x" and b.get_pos(2) == "x" or
+                b.get_pos(3) == "x" and b.get_pos(4) == "x" and b.get_pos(5) == "x" or
+                b.get_pos(6) == "x" and b.get_pos(7) == "x" and b.get_pos(8) == "x"):
+            print("7")
             return "x wins!"
-        elif top_row == "o" or mid_row == "o" or last_row == "o" or diagonal_down == "o":
+
+        # O wins for vertical lines
+        if (b.get_pos(0) == "o" and b.get_pos(3) == "o" and b.get_pos(6) == "o" or
+                b.get_pos(1) == "o" and b.get_pos(4) == "o" and b.get_pos(7) == "o" or
+                b.get_pos(2) == "o" and b.get_pos(5) == "o" and b.get_pos(8) == "o"):
+            print("8")
             return "o wins!"
+
+        # X wins for vertical lines
+        if (b.get_pos(0) == "x" and b.get_pos(3) == "x" and b.get_pos(6) == "x" or
+                b.get_pos(1) == "x" and b.get_pos(4) == "x" and b.get_pos(7) == "x" or
+                b.get_pos(2) == "x" and b.get_pos(5) == "x" and b.get_pos(8) == "x"):
+            print("9")
+            return "x wins!"
+
+        # O wins for diagonals
+        if (b.get_pos(0) == "o" and b.get_pos(4) == "o" and b.get_pos(8) == "o" or
+                b.get_pos(2) == "o" and b.get_pos(4) == "o" and b.get_pos(6) == "o"):
+            print("10")
+            return "o wins!"
+
+        # X wins for diagonals
+        if (b.get_pos(0) == "x" and b.get_pos(4) == "x" and b.get_pos(8) == "x" or
+                b.get_pos(2) == "x" and b.get_pos(4) == "x" and b.get_pos(6) == "x"):
+            print("10")
+            return "x wins!"
