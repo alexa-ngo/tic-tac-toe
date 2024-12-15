@@ -50,7 +50,7 @@ class Board:
         if index_num < 0 or index_num > 8:
             raise IndexError("Sorry, index out of range.")
 
-    def iterate_through_board(self):
+    def print_board(self):
         idx = 0
         for cell in self._board:
             print(f"{idx}: {cell}")
