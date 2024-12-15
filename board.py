@@ -6,8 +6,7 @@ class Board:
         self._o = player2.get_player_role()
         self._curr_player = self._x
 
-    # Implemented an iterator of the board to give people the flexibility
-    # to iterate through each cell
+    # Iterates through each cell of the board
     def __iter__(self):
         self.current_board_idx = 0
         self.board_to_iterate = list(self._board)
@@ -31,17 +30,23 @@ class Board:
         return self._board[index_num]
 
     def set_pos(self, index_num):
+        # Check to see if the index number is within the range and valid
         self.is_valid(index_num)
 
         self._board[index_num] = self._curr_player
 
+        # Switch roles after the position Player X has taken their turn
         if self._curr_player == self._x:
             self._curr_player = self._o
+
         return
 
-    # check if it is a tie if the board is full
+    # will implement a check to see if there is a tie if the board is full
 
     def is_valid(self, index_num):
+        """
+        Checks to see if the index is within the range of the board
+        """
         if index_num < 0 or index_num > 8:
             raise IndexError("Sorry, index out of range.")
 
@@ -50,8 +55,12 @@ class Board:
         for cell in self._board:
             print(f"{idx}: {cell}")
             idx += 1
+        return
 
     def new_round(self):
+        """
+        Sets the first player back to Player X after every round.
+        """
         self._curr_player = self._x
 
 
