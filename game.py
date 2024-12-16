@@ -45,3 +45,15 @@ class Game:
         if (b.get_pos(0) == "x" and b.get_pos(4) == "x" and b.get_pos(8) == "x" or
                 b.get_pos(2) == "x" and b.get_pos(4) == "x" and b.get_pos(6) == "x"):
             return "x wins!"
+
+
+    def get_board(self):
+        return self._the_board
+
+    def is_tied(self):
+        array = self.get_board()
+        result = all(array)
+        if result is True:
+            return "There is a tie!"
+
+
