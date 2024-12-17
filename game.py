@@ -54,6 +54,7 @@ class Game:
         array = self.get_board()
         result = all(array)
         if result is True:
-            return "There is a tie!"
+            print("There is a tie!")
+        return
 
 

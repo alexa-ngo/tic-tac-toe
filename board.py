@@ -1,7 +1,9 @@
+from player import *
+
 class Board:
 
     def __init__(self, player1 , player2):
-        self._board = [None, None, None, None, None, None, None, None, None]
+        self._board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
         self._x = player1.get_player_role()
         self._o = player2.get_player_role()
         self._curr_player = self._x
@@ -21,7 +23,7 @@ class Board:
         raise StopIteration
 
     def clear_board(self):
-        self._board = [None] * 9
+        self._board = [" "] * 9
 
     def get_curr_player(self):
         return self._curr_player
@@ -30,10 +32,12 @@ class Board:
         return self._board[index_num]
 
     def set_pos(self, index_num):
-        # Check to see if the index number is within the range and valid
-        self.is_valid(index_num)
 
-        if self._board[index_num] is not None:
+        index_num = int(index_num)
+        # Check to see if the index number is within the range and valid
+        self.is_valid(int(index_num))
+
+        if self._board[index_num] != " ":
             raise TypeError("Sorry, this index is occupied. Please choose another index.")
 
         self._board[index_num] = self._curr_player
@@ -62,11 +66,28 @@ class Board:
             idx += 1
         return
 
+    def print_formatted_board(self):
+        b = self._board
+        print("\n")
+        print(f" {b[0]} | {b[1]} | {b[2]} ")
+        print(f" ----------")
+        print(f" {b[3]} | {b[4]} | {b[5]} ")
+        print(f" ----------")
+        print(f" {b[6]} | {b[7]} | {b[8]} ")
+        print("\n")
+
     def new_round(self):
         """
         Sets the first player back to Player X after every round.
         """
         self._curr_player = self._x
+
+    def start_game(self):
+        player1 = Player("x")
+        player2 = Player("o")
+
+        board = Board(player1, player2)
+        return board
 
 
 
