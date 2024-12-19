@@ -50,11 +50,21 @@ class Game:
     def get_board(self):
         return self._the_board
 
-    def is_tied(self):
-        array = self.get_board()
-        result = all(array)
-        if result is True:
-            print("There is a tie!")
-        return
+    def is_game_over(self, board):
+        if self.check(board) == "x wins!" or self.check(board) == "o wins!":
+            print("The game is over!")
+            return
+
+    def is_tied(self, board):
+        print("Here is the value of board", self.check(board))
+        if self.check(board) == "x wins!" or self.check(board) == "o wins!":
+            return
+        print("Here is the board: ", self.get_board())
+        # elif len(self.get_board()) == 9:
+        #     print("The current board length is: ", len(board))
+        #     return "There is a tie!"
+
+
+
 
 

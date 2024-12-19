@@ -30,57 +30,82 @@ def start_game():
         pos_of_y = input("Player 2, position of Y? ")
         the_board.set_pos(pos_of_y)
         print(the_game.check(the_board))
+
         the_board.print_formatted_board()
         the_board.new_round()
+
+        print("Hi1")
 
         pos_of_x = input("Player 1, position of X? ")
         the_board.set_pos(pos_of_x)
         print(the_game.check(the_board))
-        print(the_game.is_tied())
+        print(the_game.is_game_over(the_board))
+
+        the_game.is_tied(the_board)
 
         the_board.print_formatted_board()
+        the_board.new_round()
+
+        print("Bye1")
 
         pos_of_y = input("Player 2, position of Y? ")
         the_board.set_pos(pos_of_y)
         print(the_game.check(the_board))
-        print(the_game.is_tied())
-        the_board.print_formatted_board()
+        print(the_game.is_game_over(the_board))
 
+        the_game.is_tied(the_board)
+
+        the_board.print_formatted_board()
         the_board.new_round()
+
+        print("Hi2")
 
         pos_of_x = input("Player 1, position of X? ")
         the_board.set_pos(pos_of_x)
         print(the_game.check(the_board))
-        print(the_game.is_tied())
-        the_board.print_formatted_board()
+        print(the_game.is_game_over(the_board))
 
-        print(the_game.check(the_board))
-        print(the_game.is_tied())
+        the_game.is_tied(the_board)
+
+        the_board.print_formatted_board()
         the_board.new_round()
+
+        print("Bye2")
 
         pos_of_y = input("Player 2, position of Y? ")
         the_board.set_pos(pos_of_y)
         print(the_game.check(the_board))
-        print(the_game.is_tied())
-        the_board.print_formatted_board()
+        print(the_game.is_game_over(the_board))
 
+        the_game.is_tied(the_board)
+
+        the_board.print_formatted_board()
         the_board.new_round()
 
-        print(the_game.check(the_board))
-        print(the_game.is_tied())
-        the_board.print_formatted_board()
+        print("Hi3")
 
         pos_of_x = input("Player 1, position of X? ")
         the_board.set_pos(pos_of_x)
+        print(the_game.check(the_board))
+        print(the_game.is_game_over(the_board))
+
+        the_game.is_tied(the_board)
+
         the_board.print_formatted_board()
-        print(the_game.is_tied())
         the_board.new_round()
+
+        print("Bye3")
 
         pos_of_y = input("Player 2, position of Y? ")
         the_board.set_pos(pos_of_y)
         print(the_game.check(the_board))
-        print(the_game.is_tied())
+        print(the_game.is_game_over(the_board))
+
+        the_game.is_tied(the_board)
+
         the_board.print_formatted_board()
+
+        print("Bye-bye!")
     else:
         print("Sorry to see you go! Lets play next time!")
 #     # The X will win!

@@ -25,6 +25,9 @@ class Board:
     def clear_board(self):
         self._board = [" "] * 9
 
+    def get_board(self):
+        return self._board
+
     def get_curr_player(self):
         return self._curr_player
 
