@@ -7,9 +7,9 @@ class Game:
         self._o = p2.get_player_role()
         self._the_board = the_board
 
-    # Get at specific indices to check if there is three of the same symbol
+    # Check if there is three symbols in a row
     def check(self, board):
-        print("The board: ")
+
         b = board
 
         # O wins for horizontal lines
@@ -46,25 +46,18 @@ class Game:
                 b.get_pos(2) == "x" and b.get_pos(4) == "x" and b.get_pos(6) == "x"):
             return "x wins!"
 
-
     def get_board(self):
         return self._the_board
 
-    def is_game_over(self, board):
+    def is_game_active(self, board):
         if self.check(board) == "x wins!" or self.check(board) == "o wins!":
-            print("The game is over!")
-            return
+            print("\nThe game is over!")
+            print(self.check(board))
+            return False
 
     def is_tied(self, board):
+        print("Implement the tie code here!")
         print("Here is the value of board", self.check(board))
-        if self.check(board) == "x wins!" or self.check(board) == "o wins!":
-            return
-        print("Here is the board: ", self.get_board())
-        # elif len(self.get_board()) == 9:
-        #     print("The current board length is: ", len(board))
-        #     return "There is a tie!"
-
-
-
+        return
 
 
