@@ -34,22 +34,21 @@ class Board:
     def get_pos(self, index_num):
         return self._board[index_num]
 
-    def set_pos(self, index_num):
+    def set_pos(self, index_num, curr_player):
 
         index_num = int(index_num)
         # Check to see if the index number is within the range and valid
         self.is_valid(int(index_num))
 
         if self._board[index_num] != " ":
-            raise TypeError("Sorry, this index is occupied. Please choose another index.")
+            self.start_game()
+            print("Sorry, this index is occupied. Please choose another index.")
+            return "Don't switch players"
 
-        self._board[index_num] = self._curr_player
+        else:
 
-        # Switch roles after the position Player X has taken their turn
-        if self._curr_player == self._x:
-            self._curr_player = self._o
-
-        return
+            self._board[index_num] = curr_player
+            return "Switch players"
 
     # will implement a check to see if there is a tie if the board is full
 
