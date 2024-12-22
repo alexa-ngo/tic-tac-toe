@@ -1,5 +1,3 @@
-from board import *
-
 class Game:
 
     def __init__(self, the_board, p1, p2):
@@ -7,8 +5,11 @@ class Game:
         self._o = p2.get_player_role()
         self._the_board = the_board
 
-    # Check if there is three symbols in a row
+
     def check(self, board):
+        """
+        Check if there is three symbols in a row
+        """
 
         b = board
 

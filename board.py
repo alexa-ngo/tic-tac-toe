@@ -8,8 +8,10 @@ class Board:
         self._o = player2.get_player_role()
         self._curr_player = self._x
 
-    # Iterates through each cell of the board
     def __iter__(self):
+        """
+        Iterates through each cell of the board
+        """
         self.current_board_idx = 0
         self.board_to_iterate = list(self._board)
         return
@@ -35,6 +37,9 @@ class Board:
         return self._board[index_num]
 
     def set_pos(self, curr_player, index_num=0):
+        """
+        Set the position based on the index number
+        """
 
         # Convert the string index_num into an int
         index_num = int(index_num)
@@ -46,17 +51,15 @@ class Board:
 
         # Check the index number is within the range
         # Redo turn when the space is occupied
-        if self._board[index_num] != " " or self.is_valid(int(index_num)) is False:
+        if self._board[index_num] != " " or self.is_valid(index_num) is False:
             self.start_game()
             print("Sorry, this index is occupied. Please choose another index.")
-            return False # "Don't switch players"
+            return False
 
         else:
             self._board[index_num] = curr_player
-            return "Switch players"
+            return
 
-
-    # Returns True if there is a tie
     def is_tie(self):
 
         count = 0
@@ -64,6 +67,7 @@ class Board:
             if each != " ":
                 count = count + 1
 
+        # Returns True if there is a tie
         if count == 9:
             return True
 
