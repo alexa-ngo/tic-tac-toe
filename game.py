@@ -54,10 +54,3 @@ class Game:
             print("\nThe game is over!")
             print(self.check(board))
             return False
-
-    def is_tied(self, board):
-        print("Implement the tie code here!")
-        print("Here is the value of board", self.check(board))
-        return
-
-

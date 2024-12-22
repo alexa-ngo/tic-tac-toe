@@ -19,9 +19,6 @@ def start_game():
             pos_of_x_or_o = input(f"Player {curr_player}, position of {curr_player}: ")
             switch_players_or_not = the_board.set_pos(curr_player,pos_of_x_or_o)
             the_board.print_formatted_board()
-            #
-            # if the_board.is_tie() is True:
-            #     break
 
             # Check if there are three symbols in a row
             results = the_game.check(the_board)
@@ -30,7 +27,7 @@ def start_game():
 
             result_of_out_of_range = the_board.is_valid(int(pos_of_x_or_o))
 
-            if switch_players_or_not == "Don't switch players" or result_of_out_of_range is False:
+            if switch_players_or_not is False or result_of_out_of_range is False:
                 curr_player = curr_player
             else:
                 if "x" == curr_player:

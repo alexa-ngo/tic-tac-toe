@@ -12,7 +12,7 @@ class Board:
     def __iter__(self):
         self.current_board_idx = 0
         self.board_to_iterate = list(self._board)
-        return self
+        return
 
     def __next__(self):
         if self.current_board_idx < len(self.board_to_iterate):
@@ -39,23 +39,24 @@ class Board:
         # Convert the string index_num into an int
         index_num = int(index_num)
 
-        # Check the index number is within the range
-        if self.is_valid(int(index_num)) is False:
-            curr_player = curr_player
+        # Ask the player for another position if their index_num is out of range
+        if len(self._board) < index_num:
+            self.start_game()
+            return False
 
+        # Check the index number is within the range
         # Redo turn when the space is occupied
-        if self._board[index_num] != " " or self.is_valid(index_num) is False:
+        if self._board[index_num] != " " or self.is_valid(int(index_num)) is False:
             self.start_game()
             print("Sorry, this index is occupied. Please choose another index.")
-            return "Don't switch players"
+            return False # "Don't switch players"
 
         else:
-
             self._board[index_num] = curr_player
             return "Switch players"
 
 
-    # check if there is a tie
+    # Returns True if there is a tie
     def is_tie(self):
 
         count = 0
@@ -65,7 +66,6 @@ class Board:
 
         if count == 9:
             return True
-
 
     def is_valid(self, index_num):
         """
