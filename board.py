@@ -41,6 +41,10 @@ class Board:
         Set the position based on the index number
         """
 
+        if index_num == "":
+            self.start_game()
+            return False
+
         # Convert the string index_num into an int
         index_num = int(index_num)
 
@@ -58,7 +62,7 @@ class Board:
 
         else:
             self._board[index_num] = curr_player
-            return
+            return True
 
     def is_tie(self):
 
@@ -70,6 +74,9 @@ class Board:
         # Returns True if there is a tie
         if count == 9:
             return True
+
+        return
+
 
     def is_valid(self, index_num):
         """
