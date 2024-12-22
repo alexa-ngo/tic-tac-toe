@@ -34,13 +34,17 @@ class Board:
     def get_pos(self, index_num):
         return self._board[index_num]
 
-    def set_pos(self, index_num, curr_player):
+    def set_pos(self, curr_player, index_num=0):
 
+        # Convert the string index_num into an int
         index_num = int(index_num)
-        # Check to see if the index number is within the range and valid
-        self.is_valid(int(index_num))
 
-        if self._board[index_num] != " ":
+        # Check the index number is within the range
+        if self.is_valid(int(index_num)) is False:
+            curr_player = curr_player
+
+        # Redo turn when the space is occupied
+        if self._board[index_num] != " " or self.is_valid(index_num) is False:
             self.start_game()
             print("Sorry, this index is occupied. Please choose another index.")
             return "Don't switch players"
@@ -50,16 +54,26 @@ class Board:
             self._board[index_num] = curr_player
             return "Switch players"
 
-    # will implement a check to see if there is a tie if the board is full
+
+    # check if there is a tie
+    def is_tie(self):
+
+        count = 0
+        for each in self._board:
+            if each != " ":
+                count = count + 1
+
+        if count == 9:
+            return True
 
 
     def is_valid(self, index_num):
         """
         Checks to see if the index is within the range of the board
         """
-
         if index_num < 0 or index_num > 8:
-            raise IndexError("Sorry, index out of range.")
+            print("Sorry, index of of range.")
+            return False
 
     def print_board(self):
         idx = 0
@@ -77,12 +91,6 @@ class Board:
         print(f" ----------")
         print(f" {b[6]} | {b[7]} | {b[8]} ")
         print("\n")
-
-    def new_round(self):
-        """
-        Sets the first player back to Player X after every round.
-        """
-        self._curr_player = self._x
 
     def start_game(self):
         player1 = Player("x")
