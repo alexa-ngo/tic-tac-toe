@@ -45,6 +45,11 @@ class Board:
             self.start_game()
             return False
 
+        result = self.is_valid(index_num)
+        if result is False:
+            print("Please try again.")
+            return False
+
         # Convert the string index_num into an int
         index_num = int(index_num)
 
@@ -82,7 +87,7 @@ class Board:
         """
         Checks to see if the index is within the range of the board
         """
-        if index_num < 0 or index_num > 8:
+        if int(index_num) < 0 or int(index_num) > 8:
             print("Sorry, index of of range.")
             return False
 

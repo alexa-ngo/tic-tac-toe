@@ -2,8 +2,23 @@
 
 This is a simple text console-based implementation of the Tic-tac-toe game. 
 
-This game requires Python 3. There are no dependencies other than the Python Standard Library.
+### How to Start Playing:
 
-    Run the game: $ python3 main.py
+This game requires Python3, and we don't need any other dependencies besides the Python Standard Library.
 
-Yeap, it's easy as that! Have fun playing Tic-Tac-Toe!  ❌⭕❌ 
+We simply start the game with:
+
+    $ python3 main.py
+
+Each player will be asked to enter the position they would like to put their symbol (either an 'x' or an 'o') on.
+
+Player X will go first and then followed by Player Y.
+
+The first row is numbered with indices 0, 1, and 2. The second row uses indices 3, 4, and 5.
+The last row uses indices 6, 7, and 8.
+
+Here's an example of how the board looks like:
+
+![img.png](img.png)
+
+Yeah, it's easy as that! Have fun playing Tic-Tac-Toe! 😎 ❌⭕❌⭕ 
