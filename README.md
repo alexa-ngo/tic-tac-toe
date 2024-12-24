@@ -1,6 +1,6 @@
 # Tic-Tac-Toe Game ❌⭕❌⭕ 
 
-This is a simple text console-based implementation of the Tic-tac-toe game. 
+This is a simple text console-based implementation of the Tic-Tac-Toe game. 
 
 ### How to Start Playing:
 
