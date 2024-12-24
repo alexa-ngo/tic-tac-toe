@@ -1,4 +1,4 @@
-# ❌⭕❌⭕ Tic-Tac-Toe Game
+# Tic-Tac-Toe Game ❌⭕❌⭕ 
 
 This is a simple text console-based implementation of the Tic-tac-toe game. 
 
@@ -19,6 +19,21 @@ The last row uses indices 6, 7, and 8.
 
 Here's an example of how the board looks like:
 
-![img.png](img.png)
+```commandline
+Player x, position of x: 6
+
+
+   | o | x
+ ----------
+ o | x |
+ ----------
+ x |   |
+
+
+Yeah! x got three in a row!
+Thanks for playing!
+------------------
+Would you like to play again? (Y/N)
+```
 
 Yeah, it's easy as that! Have fun playing Tic-Tac-Toe! 😎 ❌⭕❌⭕ 
